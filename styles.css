@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* =============================================
+   TOKENS & RESET
+============================================= */
+:root {
+  --orange:       #ff6e00;
+  --orange-light: #ffc373;
+  --orange-dark:  #cc5800;
+  --cream:        #fff3e0;
+  --cream-dark:   #ffe8c4;
+  --ink:          #010101;
+  --ink-muted:    #4c4c4c;
+  --white:        #fffaf5;
+  --border:       rgba(255,110,0,.18);
+
+  --amber:        #c8a06a;  /* nav links, secondary on dark */
+  --amber-mid:    #c49060;  /* body text on dark bg */
+  --amber-dim:    #9a7040;  /* footer links */
+  --amber-muted:  #6e5230;  /* taglines, footer text */
+
+  --nav-hover-bg:               rgba(255,255,255,.08);
+  --hero-ring-faintest:         rgba(200,160,106,.08);
+  --hero-ring-faint:            rgba(200,160,106,.15);
+  --hero-ring:                  rgba(200,160,106,.22);
+  --btn-secondary-border:       rgba(245,237,216,.25);
+  --btn-secondary-border-hover: rgba(245,237,216,.6);
+  --btn-secondary-hover-bg:     rgba(255,255,255,.05);
+
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-ui:   system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --max-w: 1100px;
+  --pad-y: 5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--orange-dark); }
+a:hover { color: var(--orange); }
+
+/* =============================================
+   LAYOUT
+============================================= */
+section {
+  padding-block: var(--pad-y);
+  padding-inline: max(1.5rem, calc((100% - var(--max-w)) / 2));
+  scroll-margin-top: 5rem;
+}
+
+section:nth-child(even) {
+  background: var(--cream);
+}
+
+section > h2 > span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: .5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: .4rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+}
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* =============================================
+   NAV
+============================================= */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 2px solid var(--orange-dark);
+  padding: 1rem 1.5rem;
+}
+
+nav ul {
+  display: flex;
+  gap: .1rem;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav li:first-child {
+  margin-right: auto;
+}
+
+nav li:first-child a {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+
+nav li:first-child a span:first-child  { color: var(--orange); }
+nav li:first-child a span:nth-child(2) { color: var(--amber); }
+nav li:first-child a span:last-child   { color: var(--cream); }
+
+nav li:not(:first-child) a {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--amber);
+  text-decoration: none;
+  padding: .35rem .6rem;
+  border-radius: 4px;
+  transition: color .5s, background .5s;
+}
+
+nav li:not(:first-child) a:hover {
+  color: var(--cream);
+  background: var(--nav-hover-bg);
+}
+
+/* =============================================
+   HERO
+============================================= */
+#about {
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: 8rem 4.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  scroll-margin-top: 0rem;
+}
+
+#about::before,
+#about::after,
+#about > div::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+#about::after {
+  width: 320px; height: 320px;
+  right: -160px; top: -160px;
+  border: 4px solid var(--hero-ring);
+}
+#about::before {
+  width: 520px; height: 520px;
+  right: -260px; top: -260px;
+  border: 4px solid var(--hero-ring-faint);
+}
+#about > div::before {
+  width: 720px; height: 720px;
+  right: -360px; top: -360px;
+  border: 4px solid var(--hero-ring-faintest);
+}
+
+#about > div {
+  flex: 1;
+  min-width: 0;
+}
+
+#about > img {
+  width: 360px;
+  height: 360px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+#about h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: normal;
+  line-height: 1.1;
+  margin-bottom: .5rem;
+  color: var(--cream);
+}
+
+#about > div > p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--amber-mid);
+  margin: 1.25rem 0 2rem;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+#about > div > a {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  transition: background .15s, transform .1s;
+}
+#about > div > a:hover {
+  background: var(--orange-dark);
+  color: var(--white);
+}
+
+/* =============================================
+   MEETINGS
+============================================= */
+#meetings ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  list-style: none;
+}
+
+#meetings li {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem 1.25rem 1rem;
+}
+
+#meetings li p:first-child {
+  font-size: 1.6rem;
+  margin-bottom: .6rem;
+  line-height: 1;
+}
+
+#meetings li h3 { color: var(--orange-dark); }
+
+#meetings li p {
+  font-family: var(--font-ui);
+  font-size: .875rem;
+  color: var(--ink-muted);
+  margin-bottom: 0;
+}
+
+/* =============================================
+   GET INVOLVED
+============================================= */
+#get-involved {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+#get-involved h2 > span { color: var(--orange-light); }
+#get-involved h2 { color: var(--cream); }
+#get-involved p { color: var(--amber-mid); }
+#get-involved a { color: var(--orange-light); }
+
+#get-involved > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+#get-involved > div > a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  transition: background .15s;
+}
+#get-involved > div > a:first-child:hover { background: var(--orange-dark); color: var(--white); }
+
+#get-involved > div > a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--btn-secondary-border);
+  transition: border-color .15s, background .15s;
+}
+#get-involved > div > a:last-child:hover {
+  border-color: var(--btn-secondary-border-hover);
+  background: var(--btn-secondary-hover-bg);
+  color: var(--cream);
+}
+
+/* =============================================
+   TOPICS / INTERESTS
+============================================= */
+#topics ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+  gap: .75rem;
+  margin-top: 1.75rem;
+  list-style: none;
+}
+
+#topics li {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: .85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+#topics li span:first-child { display: flex; gap: .35rem; align-items: center; }
+
+#topics li span:nth-child(2) {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: .875rem;
+  color: var(--ink);
+}
+
+#topics li span:last-child {
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* =============================================
+   COMMUNITY GUIDELINES
+============================================= */
+#guidelines ul {
+  list-style: none;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#guidelines li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 5px 5px 0;
+  padding: 1rem 1.25rem;
+}
+
+#guidelines li > span:first-child {
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  padding-top: .15rem;
+  min-width: 2.4rem;
+}
+
+#guidelines li > span:last-child {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+#guidelines li > span:last-child em {
+  display: block;
+  font-size: .85rem;
+  font-style: normal;
+  font-family: var(--font-ui);
+  color: var(--ink-muted);
+  margin-top: .25rem;
+}
+
+/* =============================================
+   FAQ
+============================================= */
+#faq > div {
+  margin-top: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+details {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+details:last-child { border-bottom: none; }
+
+details summary {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: .95rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+  transition: background .15s;
+}
+details summary::-webkit-details-marker { display: none; }
+
+details summary:hover { background: var(--cream); }
+
+details[open] summary { color: var(--orange-dark); }
+
+details summary::after {
+  content: '+';
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--orange);
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+details[open] summary::after { transform: rotate(45deg); }
+
+details > p {
+  padding: .6rem 1.25rem 1.1rem;
+  font-size: .95rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+details > p a { color: var(--orange-dark); }
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: var(--ink);
+  color: var(--amber-muted);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: .825rem;
+}
+
+footer > img {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto .75rem;
+  border-radius: 6px;
+}
+
+footer p { margin-bottom: .25rem; color: var(--amber-muted); }
+footer a { color: var(--amber-dim); }
+footer a:hover { color: var(--cream); }
+
+footer > p:last-child {
+  margin-top: 1rem;
+  font-size: .75rem;
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 768px) {
+  #topics ul { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 580px) {
+  :root { --pad-y: 3.5rem; }
+
+  nav li:not(:first-child) { display: none; }
+
+  #about {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  #about > img {
+    width: 160px;
+    height: 160px;
+  }
+
+  #topics ul { grid-template-columns: repeat(2, 1fr); }
+
+  #get-involved > div { flex-direction: column; }
+  #get-involved > div > a { justify-content: center; }
+}
