@@ -175,6 +175,45 @@ nav li:not(:first-child) a:hover {
 }
 
 /* =============================================
+   BUTTONS
+============================================= */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-ui);
+  font-size: .95rem;
+  text-decoration: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  transition: background .15s, transform .1s;
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  font-weight: 600;
+  border: 1px solid var(--btn-secondary-border);
+  transition: border-color .15s, background .15s;
+}
+.btn-secondary:hover {
+  border-color: var(--btn-secondary-border-hover);
+  background: var(--btn-secondary-hover-bg);
+  color: var(--cream);
+}
+
+/* =============================================
    HERO
 ============================================= */
 #about {
@@ -242,24 +281,6 @@ nav li:not(:first-child) a:hover {
   line-height: 1.6;
 }
 
-#about > div > a {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: var(--orange);
-  color: var(--white);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: .95rem;
-  text-decoration: none;
-  padding: .75rem 1.5rem;
-  border-radius: 4px;
-  transition: background .15s, transform .1s;
-}
-#about > div > a:hover {
-  background: var(--orange-dark);
-  color: var(--white);
-}
 
 /* =============================================
    MEETINGS
@@ -305,7 +326,7 @@ nav li:not(:first-child) a:hover {
 #get-involved h2 > span { color: var(--orange-light); }
 #get-involved h2 { color: var(--cream); }
 #get-involved p { color: var(--amber-mid); }
-#get-involved a { color: var(--orange-light); }
+#get-involved p a { color: var(--orange-light); }
 
 #get-involved > div {
   display: flex;
@@ -314,42 +335,6 @@ nav li:not(:first-child) a:hover {
   margin-top: 1.75rem;
 }
 
-#get-involved > div > a:first-child {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: var(--orange);
-  color: var(--white);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: .95rem;
-  text-decoration: none;
-  padding: .75rem 1.5rem;
-  border-radius: 4px;
-  transition: background .15s;
-}
-#get-involved > div > a:first-child:hover { background: var(--orange-dark); color: var(--white); }
-
-#get-involved > div > a:last-child {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: transparent;
-  color: var(--cream);
-  font-family: var(--font-ui);
-  font-weight: 600;
-  font-size: .95rem;
-  text-decoration: none;
-  padding: .75rem 1.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--btn-secondary-border);
-  transition: border-color .15s, background .15s;
-}
-#get-involved > div > a:last-child:hover {
-  border-color: var(--btn-secondary-border-hover);
-  background: var(--btn-secondary-hover-bg);
-  color: var(--cream);
-}
 
 /* =============================================
    TOPICS / INTERESTS
