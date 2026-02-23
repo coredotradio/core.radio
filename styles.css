@@ -333,8 +333,28 @@ nav li:not(:first-child) a:hover {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
+#get-involved .formkit-form {
+  margin-top: 1.75rem !important;
+}
+
+#get-involved .formkit-form div {
+  padding: 0 !important;
+  padding-top: 0 !important;
+  margin: 0 !important;
+}
+
+#get-involved .formkit-input,
+#get-involved .formkit-submit {
+  height: 2.75rem !important;
+}
+
+#get-involved .formkit-fields {
+  justify-content: flex-start !important;
+  gap: .75rem !important;
+}
 
 /* =============================================
    TOPICS / INTERESTS
