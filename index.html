@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="core-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
 
@@ -50,31 +51,46 @@
   <section id="meetings">
     <h2><span>Meetings</span> Hang out, learn, and share</h2>
     <p>
-      While Discord is our main hub, we have in-person meetups as well.
-      Meetings are casual gatherings where you can listen to a talk, see and
-      share projects, and chat with other radio curious folks. Maybe you'll
-      even want to give a talk yourself! And, of course, a trip to the pub
-      afterwards is always on the table.
+      We meet on the first Tuesday of every month. Meetings are casual
+      gatherings where you can listen to a talk, see and share projects, and
+      chat with other radio curious folks. Maybe you'll even want to give a
+      talk yourself! And, of course, a trip to the pub afterwards is always
+      on the table.
     </p>
-    <ul>
-      <li>
-        <p><img src="icons/calendar.svg" alt="" width="24" height="24"></p>
-        <h3>When</h3>
-        <p>
-          We're still figuring out a regular cadence but we're planning on
-          monthly. Join <a href="#get-involved">Discord</a> for the first
-          announcement.
-        </p>
-      </li>
-      <li>
-        <p><img src="icons/map-pin.svg" alt="" width="24" height="24"></p>
-        <h3>Where</h3>
-        <p>
-          We're looking for a venue. If you have suggestions or can host a
-          small meetup, reach out on <a href="#get-involved">Discord</a> or
-          <a href="#get-involved">send an email</a>.
-        </p>
-      </li>
+
+    <div class="next-meeting">
+      <div class="next-meeting-content">
+        <h3>Next Meeting</h3>
+        <p class="next-meeting-date">Tuesday, April 7, 2026</p>
+        <p class="next-meeting-talk">To Be Announced</p>
+        <table>
+          <tr><th>Time</th><td>6:00–9:00 PM</td></tr>
+          <tr><th>Venue</th><td><a href="https://leadingedje.com/" target="_blank">Leading EDJE</a>, 6515 Longshore Loop, Suite 300, Dublin, Ohio</td></tr>
+          <tr><th>Parking</th><td>Free parking at 6725 Longshore Street, Dublin, Ohio</td></tr>
+        </table>
+        <div class="next-meeting-actions">
+          <button class="btn-talk-details" onclick="document.getElementById('talk-modal').showModal()">Talk Details</button>
+          <button class="btn-primary" data-tally-open="ODP8G7" data-tally-hide-title="1" data-tally-emoji-text="📻" data-tally-emoji-animation="heart-beat" data-tally-auto-close="0">RSVP</button>
+        </div>
+      </div>
+      <iframe
+        width="100%"
+        height="250"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-83.11218%2C40.09837%2C-83.10374%2C40.10185&layer=mapnik&marker=40.100128%2C-83.108262"
+      ></iframe>
+    </div>
+
+    <details>
+      <summary>Upcoming Meetings</summary>
+      <table class="upcoming-meetings">
+        <tr><th>May 5, 2026</th><td>Details TBD</td></tr>
+        <tr><th>June 2, 2026</th><td>Details TBD</td></tr>
+        <tr><th>July 7, 2026</th><td>Details TBD</td></tr>
+        <tr><th>August 4, 2026</th><td>Details TBD</td></tr>
+      </table>
+    </details>
+
+    <ul class="meeting-info">
       <li>
         <p><img src="icons/mic.svg" alt="" width="24" height="24"></p>
         <h3>Format</h3>
@@ -86,6 +102,12 @@
         <p>Yourself. Curiosity counts as a reason to come. A project or gadget if you have one. Nothing is required.</p>
       </li>
     </ul>
+
+    <dialog id="talk-modal">
+      <h3>To Be Announced</h3>
+      <p>We are selecting speakers for this meeting. Stay tuned for more details!</p>
+      <button class="btn-talk-details" onclick="document.getElementById('talk-modal').close()">Close</button>
+    </dialog>
   </section>
 
   <section id="get-involved">
@@ -241,9 +263,10 @@
       <details>
         <summary>Where do you meet?</summary>
         <p>
-          We're still figuring that out. Somewhere in Central Ohio, of course.
-          Likely a makerspace, public library, or helpful corporate sponsor.
-          Join the Discord to get notified when the first meetup is announced.
+          We meet at Leading EDJE, 6515 Longshore Loop, Suite 300, Dublin,
+          Ohio. Free parking is available at 6725 Longshore Street, Dublin,
+          Ohio. Check the <a href="#meetings">meetings section</a> for the
+          next date and details.
         </p>
       </details>
       <details>

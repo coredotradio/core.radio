@@ -285,30 +285,204 @@ nav li:not(:first-child) a:hover {
 /* =============================================
    MEETINGS
 ============================================= */
-#meetings ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 1.25rem;
+.next-meeting {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 6px 6px 0;
+  padding: 1.5rem 1.5rem 1.25rem;
   margin-top: 1.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.next-meeting-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.next-meeting h3 {
+  color: var(--orange-dark);
+  font-size: 1.15rem;
+  margin-bottom: .25rem;
+}
+
+.next-meeting p {
+  font-family: var(--font-ui);
+  font-size: .925rem;
+  color: var(--ink-muted);
+  margin-bottom: .35rem;
+}
+
+.next-meeting .next-meeting-date {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.next-meeting table {
+  font-family: var(--font-ui);
+  font-size: .925rem;
+  color: var(--ink-muted);
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.next-meeting th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  padding: .1rem .75rem .1rem 0;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.next-meeting td {
+  padding: .1rem 0;
+  vertical-align: top;
+}
+
+.next-meeting .next-meeting-talk {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .6rem;
+}
+
+.next-meeting iframe {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  width: 400px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.next-meeting-actions {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+}
+
+.btn-talk-details {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  color: var(--orange-dark);
+  background: var(--cream-dark);
+  transition: background .15s, color .15s;
+  cursor: pointer;
+}
+
+.btn-talk-details:hover {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+}
+
+.next-meeting .btn-primary {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#talk-modal {
+  border: none;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 560px;
+  width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  font-family: var(--font-body);
+  color: var(--ink);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#talk-modal::backdrop {
+  background: rgba(1,1,1,.5);
+}
+
+#talk-modal h3 {
+  font-size: 1.25rem;
+  color: var(--orange-dark);
+  margin-bottom: .25rem;
+}
+
+#talk-modal > p {
+  font-size: .95rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+
+#talk-modal .btn-talk-details {
+  cursor: pointer;
+}
+
+.upcoming-meetings {
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0 1.25rem 1rem;
+  font-family: var(--font-ui);
+  font-size: .925rem;
+  color: var(--ink-muted);
+}
+
+.upcoming-meetings th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  padding: .15rem .75rem .15rem 0;
+  white-space: nowrap;
+}
+
+.upcoming-meetings td {
+  padding: .15rem 0;
+}
+
+#meetings > details {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.meeting-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: .5rem;
   list-style: none;
 }
 
-#meetings li {
+.meeting-info li {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.25rem 1.25rem 1rem;
 }
 
-#meetings li p:first-child {
+.meeting-info li p:first-child {
   font-size: 1.6rem;
   margin-bottom: .6rem;
   line-height: 1;
 }
 
-#meetings li h3 { color: var(--orange-dark); }
+.meeting-info li h3 { color: var(--orange-dark); }
 
-#meetings li p {
+.meeting-info li p {
   font-family: var(--font-ui);
   font-size: .875rem;
   color: var(--ink-muted);
@@ -551,6 +725,11 @@ footer > p:last-child {
   }
 
   #topics ul { grid-template-columns: repeat(2, 1fr); }
+
+  .next-meeting { flex-direction: column; }
+  .next-meeting iframe { width: 100%; height: 200px; }
+
+  .meeting-info { grid-template-columns: 1fr; }
 
   #get-involved > div { flex-direction: column; }
   #get-involved > div > a { justify-content: center; }
