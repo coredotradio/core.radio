@@ -461,7 +461,7 @@ nav li:not(:first-child) a:hover {
 
 .meeting-info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   margin-top: .5rem;
   list-style: none;
@@ -706,6 +706,7 @@ footer > p:last-child {
 ============================================= */
 @media (max-width: 768px) {
   #topics ul { grid-template-columns: repeat(3, 1fr); }
+  .meeting-info { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 580px) {
