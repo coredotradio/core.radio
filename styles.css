@@ -273,6 +273,12 @@ nav li:not(:first-child) a:hover {
   color: var(--cream);
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 #about > div > p {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--amber-mid);
