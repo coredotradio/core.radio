@@ -65,7 +65,7 @@
               <rect width="18" height="18" x="3" y="4" rx="2" />
               <path d="M3 10h18" />
             </svg>
-            Next Meeting: April 7
+            Next Meeting: May 5
           </a>
           <a href="https://discord.gg/zfTRcm2HJH" target="_blank" rel="noopener" class="btn-secondary">
             <svg
@@ -97,8 +97,9 @@
       <div class="next-meeting">
         <div class="next-meeting-content">
           <h3>Next Meeting</h3>
-          <p class="next-meeting-date">Tuesday, April 7, 2026</p>
-          <p class="next-meeting-talk">WiFi HaLow: Introduction and Practical Use with Alex Barbur</p>
+          <p class="next-meeting-date">Tuesday, May 5, 2026</p>
+          <p class="next-meeting-talk">Radio Signal Analysis Using SDRs and OpenWebRX+</p>
+          <p class="next-meeting-speaker">Scott McCrory KE8SAU/WRML487</p>
           <table>
             <tr>
               <th>Time</th>
@@ -119,7 +120,7 @@
           <div class="next-meeting-actions">
             <button
               class="btn-primary"
-              data-tally-open="ODP8G7"
+              data-tally-open="obVz6O"
               data-tally-hide-title="1"
               data-tally-emoji-text="📻"
               data-tally-emoji-animation="heart-beat"
@@ -142,10 +143,6 @@
       <details>
         <summary>Upcoming Meetings</summary>
         <table class="upcoming-meetings">
-          <tr>
-            <th>May 5, 2026</th>
-            <td>Details TBD</td>
-          </tr>
           <tr>
             <th>June 2, 2026</th>
             <td>Details TBD</td>
@@ -189,17 +186,32 @@
       </ul>
 
       <dialog id="talk-modal">
-        <h3>WiFi HaLow: Introduction and Practical Use with Alex Barbur</h3>
+        <h3>Radio Signal Analysis Using SDRs and OpenWebRX+</h3>
+        <p class="next-meeting-speaker">Scott McCrory KE8SAU/WRML487</p>
         <p>
-          WiFi HaLow (802.11ah) is a low-power, long-range variant of WiFi designed for IoT and embedded applications.
-          Operating in the sub-GHz band, it trades raw speed for dramatically better range and penetration—making it a
-          compelling option for sensors, remote monitoring, mesh-style networks, and projects where traditional WiFi
-          falls short.
+          Software-Defined Radio has never been more accessible — or more capable. In this session, we'll explore how a
+          modest hardware investment and open-source software can turn a browser into a full-featured radio monitoring
+          station reachable from anywhere on the internet.
         </p>
         <p>
-          In this talk, Alex will walk through what HaLow is, how it works, and where it fits alongside other wireless
-          technologies. You'll come away with enough context to get started and some practical applications you can try
-          yourself.
+          The presentation opens with a live demo of a working remote SDR installation, accessible directly from a
+          browser — no plugins, no special client software required. From there, we'll walk through the complete hardware
+          and software stack, cover the key installation and configuration steps, and discuss signal path considerations
+          and antenna choices (along with their real-world limitations).
+        </p>
+        <p>
+          The bulk of the session dives into practical signal monitoring across a wide swath of the spectrum: APRS packet
+          traffic, ADS-B flight tracking, VHF and UHF activity, GMRS, CB, and HF. We'll look at what OpenWebRX+ makes
+          visible that used to require dedicated hardware for each band.
+        </p>
+        <p>
+          We're also pleased to have <a href="https://guy.dev" target="_blank">Guy Royse</a> joining us — contributor to the newly published
+          <a href="https://pragprog.com/titles/rmwebrx/build-tune-explore-with-openwebrx/" target="_blank"><em>Build, Tune, Explore with OpenWebRX+: Web-Connected Software-Defined Radio Made Simple</em></a> (Pragmatic
+          exPress) — available for questions and discussion.
+        </p>
+        <p>
+          Whether you're an SDR veteran or just SDR-curious, this session should give you something useful to take home.
+          Bring your questions — we'll wrap with an open Q&A.
         </p>
         <button class="btn-talk-details" onclick="document.getElementById('talk-modal').close()">Close</button>
       </dialog>
