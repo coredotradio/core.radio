@@ -78,7 +78,7 @@ html {
 }
 
 body {
-  background: var(--white);
+  background: var(--ink);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -105,12 +105,15 @@ section {
   scroll-margin-top: 5rem;
 }
 
+section {
+  background: var(--white);
+}
+
 section:nth-child(even) {
   background: var(--cream);
 }
 
-section > h2 > span {
-  display: block;
+section > h2 {
   font-family: var(--font-ui);
   font-size: 0.75rem;
   font-weight: 700;
@@ -120,14 +123,14 @@ section > h2 > span {
   margin-bottom: 0.5rem;
 }
 
-h2 {
+h3 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: normal;
   line-height: 1.25;
   margin-bottom: 1.25rem;
 }
 
-h3 {
+h4 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
   font-family: var(--font-ui);
@@ -344,7 +347,7 @@ nav li:not(:first-child) a:hover {
   min-width: 0;
 }
 
-.next-meeting h3 {
+.next-meeting h4 {
   color: var(--orange-dark);
   font-size: 1.15rem;
   margin-bottom: 0.25rem;
@@ -467,7 +470,7 @@ nav li:not(:first-child) a:hover {
   background: rgba(1, 1, 1, 0.5);
 }
 
-#talk-modal h3 {
+#talk-modal h4 {
   font-size: 1.25rem;
   color: var(--orange-dark);
   margin-bottom: 0;
@@ -492,6 +495,38 @@ nav li:not(:first-child) a:hover {
   margin-top: 0.75rem;
 }
 
+.past-meeting {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 6px 6px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.past-meeting h4 {
+  color: var(--orange-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.past-meeting .past-meeting-meta {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.past-meeting > p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+.past-meeting > p:last-of-type {
+  margin-bottom: 0;
+}
+
 .upcoming-meetings {
   border-collapse: collapse;
   padding: 0;
@@ -513,11 +548,22 @@ nav li:not(:first-child) a:hover {
   padding: 0.15rem 0;
 }
 
-#meetings > details {
+.meeting-links {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meeting-links > details {
+  flex: 1;
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+}
+
+.meeting-links > details > summary {
+  padding: 0.75rem 1.25rem;
 }
 
 .meeting-info {
@@ -541,7 +587,7 @@ nav li:not(:first-child) a:hover {
   line-height: 1;
 }
 
-.meeting-info li h3 {
+.meeting-info li h4 {
   color: var(--orange-dark);
 }
 
@@ -560,10 +606,10 @@ nav li:not(:first-child) a:hover {
   color: var(--cream);
 }
 
-#get-involved h2 > span {
+#get-involved h2 {
   color: var(--orange-light);
 }
-#get-involved h2 {
+#get-involved > h3 {
   color: var(--cream);
 }
 #get-involved p {
@@ -599,6 +645,55 @@ nav li:not(:first-child) a:hover {
 #get-involved .formkit-fields {
   justify-content: flex-start !important;
   gap: 0.75rem !important;
+}
+
+.on-the-air {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.on-the-air > div {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+}
+
+.on-the-air h4 {
+  color: var(--cream);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.simplex-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.on-the-air .frequency {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--orange-light);
+  line-height: 1.2;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.meshtastic-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.meshtastic-qr {
+  max-width: 150px;
+  flex-shrink: 0;
+  border-radius: 4px;
 }
 
 /* =============================================

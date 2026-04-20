@@ -87,7 +87,8 @@
     </section>
 
     <section id="meetings">
-      <h2><span>Meetings</span> Hang out, learn, and share</h2>
+      <h2>Meetings</h2>
+      <h3>Hang out, learn, and share</h3>
       <p>
         Meetings are casual gatherings where you can listen to a talk, see and share projects, and chat with other radio
         curious folks. Maybe you'll even want to give a talk yourself! And, of course, a trip to the pub afterwards is
@@ -96,7 +97,7 @@
 
       <div class="next-meeting">
         <div class="next-meeting-content">
-          <h3>Next Meeting</h3>
+          <h4>Next Meeting</h4>
           <p class="next-meeting-date">Tuesday, May 5, 2026</p>
           <p class="next-meeting-talk">Radio Signal Analysis Using SDRs and OpenWebRX+</p>
           <p class="next-meeting-speaker">Scott McCrory KE8SAU/WRML487</p>
@@ -140,8 +141,9 @@
         ></iframe>
       </div>
 
-      <details>
-        <summary>Upcoming Meetings</summary>
+      <div class="meeting-links">
+        <details>
+          <summary>Upcoming Meetings</summary>
         <table class="upcoming-meetings">
           <tr>
             <th>June 2, 2026</th>
@@ -156,22 +158,24 @@
             <td>Details TBD</td>
           </tr>
         </table>
-      </details>
+        </details>
+        <a href="/past-meetings" class="btn-talk-details">Past Meetings</a>
+      </div>
 
       <ul class="meeting-info">
         <li>
           <p><img src="icons/mic.svg" alt="" width="24" height="24" /></p>
-          <h3>Format</h3>
+          <h4>Format</h4>
           <p>Talks, project show-and-tell, open discussion, social time. Beginners always welcome.</p>
         </li>
         <li>
           <p><img src="icons/calendar.svg" alt="" width="24" height="24" /></p>
-          <h3>When</h3>
+          <h4>When</h4>
           <p>Regular meetings the first Tuesday of every month. Doors open at 6 PM. Talk at 6:30.</p>
         </li>
         <li>
           <p><img src="icons/map-pin.svg" alt="" width="24" height="24" /></p>
-          <h3>Where</h3>
+          <h4>Where</h4>
           <p>
             Location may vary but normally at
             <a href="https://www.cgi.com/" target="_blank">CGI</a> in Westerville or
@@ -180,13 +184,13 @@
         </li>
         <li>
           <p><img src="icons/briefcase.svg" alt="" width="24" height="24" /></p>
-          <h3>What to Bring</h3>
+          <h4>What to Bring</h4>
           <p>Nothing required but yourself. A project or gadget if you have one. Curiosity.</p>
         </li>
       </ul>
 
       <dialog id="talk-modal">
-        <h3>Radio Signal Analysis Using SDRs and OpenWebRX+</h3>
+        <h4>Radio Signal Analysis Using SDRs and OpenWebRX+</h4>
         <p class="next-meeting-speaker">Scott McCrory KE8SAU/WRML487</p>
         <p>
           Software-Defined Radio has never been more accessible — or more capable. In this session, we'll explore how a
@@ -195,19 +199,22 @@
         </p>
         <p>
           The presentation opens with a live demo of a working remote SDR installation, accessible directly from a
-          browser — no plugins, no special client software required. From there, we'll walk through the complete hardware
-          and software stack, cover the key installation and configuration steps, and discuss signal path considerations
-          and antenna choices (along with their real-world limitations).
+          browser — no plugins, no special client software required. From there, we'll walk through the complete
+          hardware and software stack, cover the key installation and configuration steps, and discuss signal path
+          considerations and antenna choices (along with their real-world limitations).
         </p>
         <p>
-          The bulk of the session dives into practical signal monitoring across a wide swath of the spectrum: APRS packet
-          traffic, ADS-B flight tracking, VHF and UHF activity, GMRS, CB, and HF. We'll look at what OpenWebRX+ makes
-          visible that used to require dedicated hardware for each band.
+          The bulk of the session dives into practical signal monitoring across a wide swath of the spectrum: APRS
+          packet traffic, ADS-B flight tracking, VHF and UHF activity, GMRS, CB, and HF. We'll look at what OpenWebRX+
+          makes visible that used to require dedicated hardware for each band.
         </p>
         <p>
-          We're also pleased to have <a href="https://guy.dev" target="_blank">Guy Royse</a> joining us — contributor to the newly published
-          <a href="https://pragprog.com/titles/rmwebrx/build-tune-explore-with-openwebrx/" target="_blank"><em>Build, Tune, Explore with OpenWebRX+: Web-Connected Software-Defined Radio Made Simple</em></a> (Pragmatic
-          exPress) — available for questions and discussion.
+          We're also pleased to have <a href="https://guy.dev" target="_blank">Guy Royse</a> joining us — contributor to
+          the newly published
+          <a href="https://pragprog.com/titles/rmwebrx/build-tune-explore-with-openwebrx/" target="_blank"
+            ><em>Build, Tune, Explore with OpenWebRX+: Web-Connected Software-Defined Radio Made Simple</em></a
+          >
+          (Pragmatic exPress) — available for questions and discussion.
         </p>
         <p>
           Whether you're an SDR veteran or just SDR-curious, this session should give you something useful to take home.
@@ -218,14 +225,17 @@
     </section>
 
     <section id="get-involved">
-      <h2><span>Get Involved</span> Join us online</h2>
+      <h2>Get Involved</h2>
+
+      <h3>Join us online</h3>
       <p>
         Discord is the first thing to join. That's where we coordinate meetups, share projects, ask questions, and get
-        involved. We also have a GitHub organization where we share code, resources, and collaborate on projects.
+        involved. We also have a GitHub organization where we keep this website, the code and materials past talks, and
+        share and collaborate on projects.
       </p>
       <p>
-        If you want to reach out directly, give a talk, suggest a venue, or get involved in organizing, drop a message
-        to the admins on Discord or send an email.
+        If you want to reach out directly, give a talk, or get involved in organizing, drop a message to the admins on
+        Discord or send an email.
       </p>
       <div>
         <a href="https://discord.gg/zfTRcm2HJH" target="_blank" rel="noopener" class="btn-primary">
@@ -282,10 +292,30 @@
         CORE. Oh. And be sure to check your spam folder for our confirmation email after signing up.
       </p>
       <script async data-uid="cbf86a58c7" src="https://coredotradio.kit.com/cbf86a58c7/index.js"></script>
+
+      <h3>Join us on the air</h3>
+      <div class="on-the-air">
+        <div>
+          <h4>CORE Simplex Frequency</h4>
+          <p>Our informal simplex frequency. No repeater needed — just tune in and call out.</p>
+          <p class="frequency">147.555 MHz</p>
+        </div>
+        <div class="meshtastic-card">
+          <div>
+            <h4>CORE Meshtastic Channel</h4>
+            <p>
+              Join our Meshtastic mesh network. Scan the QR code with the Meshtastic app to add the CORE channel to your
+              node.
+            </p>
+          </div>
+          <img src="core-meshtastic.webp" alt="CORE Meshtastic channel QR code" class="meshtastic-qr" />
+        </div>
+      </div>
     </section>
 
     <section id="topics">
-      <h2><span>Topics &amp; Interests</span> If it involves radio, it belongs here</h2>
+      <h2>Topics &amp; Interests</h2>
+      <h3>If it involves radio, it belongs here</h3>
       <p>
         CORE has a fairly broad focus. If it involves radio signals, antennas, spectrum, protocols, or hardware—then we
         like to talk about it. Here's
@@ -346,7 +376,8 @@
     </section>
 
     <section id="guidelines">
-      <h2><span>Community Guidelines</span> Three rules. That's it.</h2>
+      <h2>Community Guidelines</h2>
+      <h3>Three rules. That's it.</h3>
       <p>We want CORE to be a place where anyone can show up, ask questions, and feel welcome. Our rules are simple:</p>
       <ul>
         <li>
@@ -365,7 +396,8 @@
     </section>
 
     <section id="faq">
-      <h2><span>FAQ</span> Questions you might have</h2>
+      <h2>FAQ</h2>
+      <h3>Questions you might have</h3>
       <div>
         <details>
           <summary>Do I need a ham radio license to join?</summary>
