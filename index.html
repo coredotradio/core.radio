@@ -65,7 +65,7 @@
               <rect width="18" height="18" x="3" y="4" rx="2" />
               <path d="M3 10h18" />
             </svg>
-            Next Meeting: June 2
+            Next Meeting: July 7
           </a>
           <a href="https://discord.gg/zfTRcm2HJH" target="_blank" rel="noopener" class="btn-secondary">
             <svg
@@ -98,9 +98,9 @@
       <div class="next-meeting">
         <div class="next-meeting-content">
           <h4>Next Meeting</h4>
-          <p class="next-meeting-date">Tuesday, June 2, 2026</p>
-          <p class="next-meeting-talk">An Introduction to DMR as an IP Transport</p>
-          <p class="next-meeting-speaker">Alex Barbur</p>
+          <p class="next-meeting-date">Tuesday, July 7, 2026</p>
+          <p class="next-meeting-talk">You've Probably Never Heard of the Reticulum Network</p>
+          <p class="next-meeting-speaker">Guy Royse W8GUY</p>
           <table>
             <tr>
               <th>Time</th>
@@ -144,20 +144,20 @@
       <div class="meeting-links">
         <details>
           <summary>Upcoming Meetings</summary>
-        <table class="upcoming-meetings">
-          <tr>
-            <th>July 7, 2026</th>
-            <td>You've Probably Never Heard of the Reticulum Network &mdash; Guy Royse W8GUY</td>
-          </tr>
-          <tr>
-            <th>August 4, 2026</th>
-            <td>Going Vertical: Signals from the Sky &mdash; Tom Graham WX8TOM (tentative)</td>
-          </tr>
-          <tr>
-            <th>September 1, 2026</th>
-            <td>Details TBD</td>
-          </tr>
-        </table>
+          <table class="upcoming-meetings">
+            <tr>
+              <th>August 4, 2026</th>
+              <td>Going Vertical: Signals from the Sky &mdash; Tom Graham WX8TOM (tentative)</td>
+            </tr>
+            <tr>
+              <th>September 1, 2026</th>
+              <td>Details TBD</td>
+            </tr>
+            <tr>
+              <th>October 6, 2026</th>
+              <td>Details TBD</td>
+            </tr>
+          </table>
         </details>
         <a href="/past-meetings" class="btn-talk-details">Past Meetings</a>
       </div>
@@ -190,24 +190,40 @@
       </ul>
 
       <dialog id="talk-modal">
-        <h4>An Introduction to DMR as an IP Transport</h4>
-        <p class="next-meeting-speaker">Alex Barbur</p>
+        <h4>You've Probably Never Heard of the Reticulum Network</h4>
+        <p class="next-meeting-speaker">Guy Royse W8GUY</p>
         <p>
-          Digital Mobile Radio (DMR) is best known as a digital voice protocol for commercial and amateur two-way
-          radio, but it's also a capable bearer for low-bandwidth IP traffic — useful when you need applications in the
-          field to talk to each other without cellular, WiFi, or internet infrastructure.
+          The networks we use every day depend on centralized infrastructure that's vulnerable to censorship,
+          surveillance, and single points of failure. Whether it's disasters, deliberate interference, or plain old
+          downtime, entire populations can, in an instant, be cut off from digital communication—sometimes when they
+          need it most. The heart of the problem is hierarchy—the hierarchical structure of these networks makes them
+          easy to exploit or to simply shut down.
         </p>
+
         <p>
-          In this talk, Alex introduces the DMR protocol from the ground up: what it is, how it differs from analog FM
-          and other digital modes, and the basics of time slots, talkgroups, and color codes. From there, he'll walk
-          through how DMR can be used to move IP packets between devices in the field, what the practical bandwidth and
-          latency look like, and what kinds of applications actually work over that pipe.
+          Reticulum is one solution to this problem. It's a cryptography-based networking stack that flattens the
+          hierarchy entirely. It was built for creating resilient, ad hoc, and private networks using almost any
+          communication hardware you can imagine—from LoRa, WiFi, and Ethernet to old school packet radio and serial
+          ports. Whether you're dealing with natural disasters or just want communications that can't be easily
+          disrupted, Reticulum is a powerful tool for building independent, interconnectable networks that work without
+          central points of control.
         </p>
+
         <p>
-          Whether you've never touched DMR before or you've used it for voice and are curious what else it can do,
-          you'll come away with a clearer picture of where DMR fits in the toolbox.
+          This talk will break down what Reticulum is and dig into how the protocol works—from its clever addressing
+          tricks to its baked-in encryption. We'll explore the built-in utilities that ship with Reticulum; try out apps
+          like MeshChat, NomadNet, and Sideband for communication; and even show some code and learn how to build apps
+          of our own.
         </p>
-        <button class="btn-talk-details" onclick="document.getElementById('talk-modal').close()">Close</button>
+
+        <p>
+          By the end, you'll understand how Reticulum and the applications that run on it work and how to set it all up
+          for yourself. Plus, you'll have the knowledge to grow the network and its capabilities by writing with
+          applications of your own. But most importantly, you'll walk away understanding how to build communication
+          networks that can survive disasters, resist interference, and keep working when traditional infrastructure
+          fails.
+        </p>
+        <p><button class="btn-talk-details" onclick="document.getElementById('talk-modal').close()">Close</button></p>
       </dialog>
     </section>
 
