@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On the Air — CORE: Central Ohio Radio Enthusiasts</title>
+    <meta
+      name="description"
+      content="CORE's simplex frequency, Meshtastic channel, and Reticulum gateway — frequencies, settings, and config you can paste."
+    />
+    <meta
+      property="og:title"
+      content="On the Air — CORE: Central Ohio Radio Enthusiasts"
+    />
+    <meta
+      property="og:description"
+      content="CORE's simplex frequency, Meshtastic channel, and Reticulum gateway — frequencies, settings, and config you can paste."
+    />
+    <meta property="og:image" content="https://core.radio/core-logo.png" />
+    <meta property="og:url" content="https://core.radio/on-the-air" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="../core-logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li>
+          <a href="/"><span>CORE</span><span>.</span><span>RADIO</span></a>
+        </li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/on-the-air">On the Air</a></li>
+        <li><a href="/meetings">Meetings</a></li>
+        <li><a href="/past-meetings">Past Meetings</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <section id="on-the-air" class="section-dark">
+      <h2>On the Air</h2>
+      <h3>Find us between meetups</h3>
+      <p>Meetups are once a month, but the radios are on all the time.</p>
+      <div class="on-the-air">
+        <div>
+          <h4>CORE Simplex Frequency</h4>
+          <p>
+            Our informal simplex frequency. No repeater needed — just tune in
+            and call out.
+          </p>
+          <p class="frequency">147.555 MHz</p>
+        </div>
+        <div class="meshtastic-card">
+          <div>
+            <h4>CORE Meshtastic Channel</h4>
+            <p>
+              Join our Meshtastic mesh network. Scan the QR code with the
+              Meshtastic app to add the CORE channel to your node.
+            </p>
+          </div>
+          <img
+            src="../core-meshtastic.webp"
+            alt="CORE Meshtastic channel QR code"
+            class="meshtastic-qr"
+          />
+        </div>
+        <div class="reticulum-card">
+          <h4>CORE Reticulum Network</h4>
+          <p>
+            We're on Reticulum as well and you can connect over the Internet or
+            over the air. New to Reticulum? You can learn more about Reticulum
+            at
+            <a href="https://reticulum.network/" target="_blank" rel="noopener"
+              >reticulum.network</a
+            >.
+          </p>
+          <div class="reticulum-config">
+            <div>
+              <h5>Internet Gateway</h5>
+              <div class="config">
+                <span>[[CORE]]</span>
+                <span>&nbsp;&nbsp;type = TCPClientInterface</span>
+                <span>&nbsp;&nbsp;enabled = yes</span>
+                <span>&nbsp;&nbsp;target_host = rns.core.radio</span>
+                <span>&nbsp;&nbsp;target_port = 4242</span>
+              </div>
+            </div>
+            <div>
+              <h5>Reticulum over LoRa</h5>
+              <div class="config">
+                <span>[[CORE LoRa]]</span>
+                <span>&nbsp;&nbsp;type = RNodeInterface</span>
+                <span>&nbsp;&nbsp;enabled = yes</span>
+                <span>&nbsp;&nbsp;port = /dev/ttyUSB0</span>
+                <span>&nbsp;&nbsp;frequency = 915000000</span>
+                <span>&nbsp;&nbsp;bandwidth = 125000</span>
+                <span>&nbsp;&nbsp;txpower = 22</span>
+                <span>&nbsp;&nbsp;spreadingfactor = 8</span>
+                <span>&nbsp;&nbsp;codingrate = 5</span>
+                <span>&nbsp;&nbsp;mode = full</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <img src="../core-logo.svg" alt="CORE" />
+      <p>Central Ohio Radio Enthusiasts &mdash; Columbus, OH</p>
+      <p>
+        <a href="mailto:hello@core.radio">hello@core.radio</a>
+        &nbsp;&bull;&nbsp;
+        <a href="https://discord.gg/zfTRcm2HJH" target="_blank" rel="noopener"
+          >Discord</a
+        >
+        &nbsp;&bull;&nbsp;
+        <a href="https://github.com/coredotradio" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

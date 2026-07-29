@@ -60,6 +60,7 @@
   --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
   --font-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
 
   --max-w: 1100px;
   --pad-y: 5rem;
@@ -250,41 +251,53 @@ nav li:not(:first-child) a:hover {
 /* =============================================
    HERO
 ============================================= */
-#about {
+#hero {
   background: var(--ink);
   color: var(--cream);
-  padding-block: 8rem 4.5rem;
+  padding-block: 8rem 7.5rem;
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 4.5rem;
   scroll-margin-top: 0rem;
 }
 
-#about::before,
-#about::after,
-#about > div::before {
+/* Copy on the left, logo on the right; the button row sits below both. */
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+#hero::before,
+#hero::after,
+.hero-top::before {
   content: '';
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
 }
-#about::after {
+#hero::after {
   width: 320px;
   height: 320px;
   right: -160px;
   top: -160px;
   border: 4px solid var(--hero-ring);
 }
-#about::before {
+#hero::before {
   width: 520px;
   height: 520px;
   right: -260px;
   top: -260px;
   border: 4px solid var(--hero-ring-faint);
 }
-#about > div::before {
+.hero-top::before {
   width: 720px;
   height: 720px;
   right: -360px;
@@ -292,19 +305,14 @@ nav li:not(:first-child) a:hover {
   border: 4px solid var(--hero-ring-faintest);
 }
 
-#about > div {
-  flex: 1;
-  min-width: 0;
-}
-
-#about > img {
-  width: 360px;
-  height: 360px;
+.hero-top > img {
+  width: 400px;
+  height: 400px;
   border-radius: 8px;
   flex-shrink: 0;
 }
 
-#about h1 {
+#hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 8vw, 5rem);
   font-weight: normal;
@@ -313,16 +321,82 @@ nav li:not(:first-child) a:hover {
   color: var(--cream);
 }
 
+/* =============================================
+   SCROLL CHEVRONS
+============================================= */
+.scroll-down {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--orange-dark);
+  transition: color 0.15s;
+}
+
+.scroll-down:hover {
+  color: var(--orange);
+}
+
+/* Bob the glyph, not the anchor — the hero variant's transform is doing
+   the centering and an animation on it would fight for the property. */
+@keyframes scroll-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.scroll-down svg {
+  animation: scroll-bob 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-down svg {
+    animation: none;
+  }
+}
+
+/* Hero variant: pinned to the bottom of the section, over the dark
+   background, so it sits below the buttons rather than after them. */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin-top: 0;
+  border-radius: 50%;
+  color: var(--amber);
+}
+
+.hero-scroll:hover {
+  color: var(--cream);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
-#about > div > p {
+/* Equal widths, so the middle button's center lands on the section's
+   midpoint — where the chevron is pinned. Centering the row alone isn't
+   enough: unequal outer buttons push the middle one off by half their
+   difference. 19rem clears the longest label with room for a longer date. */
+.hero-actions > a {
+  width: 19rem;
+  justify-content: center;
+}
+
+.hero-copy > p {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--amber-mid);
-  margin: 1.25rem 0 2rem;
+  margin-top: 1.25rem;
   max-width: 540px;
   line-height: 1.6;
 }
@@ -495,7 +569,8 @@ nav li:not(:first-child) a:hover {
   margin-top: 0.75rem;
 }
 
-.past-meeting {
+/* Shared entry card: past meetings, upcoming meetings, and FAQ items. */
+.card {
   border: 1px solid var(--border);
   border-left: 4px solid var(--orange);
   border-radius: 0 6px 6px 0;
@@ -503,13 +578,13 @@ nav li:not(:first-child) a:hover {
   margin-bottom: 1.25rem;
 }
 
-.past-meeting h4 {
+.card h4 {
   color: var(--orange-dark);
   font-size: 1.1rem;
-  margin-bottom: 0;
+  margin-bottom: 0.35rem;
 }
 
-.past-meeting .past-meeting-meta {
+.card .card-meta {
   font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--ink-muted);
@@ -517,111 +592,61 @@ nav li:not(:first-child) a:hover {
   margin-bottom: 0.75rem;
 }
 
-.past-meeting > p {
+.card > p {
   font-size: 0.95rem;
   line-height: 1.65;
   color: var(--ink-muted);
 }
 
-.past-meeting > p:last-of-type {
+.card > p:last-of-type {
   margin-bottom: 0;
-}
-
-.upcoming-meetings {
-  border-collapse: collapse;
-  padding: 0;
-  margin: 0 1.25rem 1rem;
-  font-family: var(--font-ui);
-  font-size: 0.925rem;
-  color: var(--ink-muted);
-}
-
-.upcoming-meetings th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--ink);
-  padding: 0.15rem 0.75rem 0.15rem 0;
-  white-space: nowrap;
-}
-
-.upcoming-meetings td {
-  padding: 0.15rem 0;
 }
 
 .meeting-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
+  justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
 
-.meeting-links > details {
-  flex: 1;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.meeting-links > details > summary {
-  padding: 0.75rem 1.25rem;
-}
-
-.meeting-info {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  margin-top: 0.5rem;
-  list-style: none;
-}
-
-.meeting-info li {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.25rem 1.25rem 1rem;
-}
-
-.meeting-info li p:first-child {
-  font-size: 1.6rem;
-  margin-bottom: 0.6rem;
-  line-height: 1;
-}
-
-.meeting-info li h4 {
-  color: var(--orange-dark);
-}
-
-.meeting-info li p {
-  font-family: var(--font-ui);
-  font-size: 0.875rem;
-  color: var(--ink-muted);
-  margin-bottom: 0;
+/* Matched widths, same as the hero stack. 17rem clears the longest label
+   ("Next Meeting Details & RSVP" on /meetings) with room to spare. */
+.meeting-links > a {
+  width: 17rem;
+  justify-content: center;
 }
 
 /* =============================================
-   GET INVOLVED
+   DARK SECTIONS
 ============================================= */
-#get-involved {
+/* `section` qualifier is load-bearing: it matches the specificity of
+   `section:nth-child(even)` so the dark background wins wherever the
+   section lands in the page. */
+section.section-dark {
   background: var(--ink);
   color: var(--cream);
 }
 
-#get-involved h2 {
+.section-dark h2 {
   color: var(--orange-light);
 }
-#get-involved > h3 {
+.section-dark > h3 {
   color: var(--cream);
 }
-#get-involved p {
+.section-dark p {
   color: var(--amber-mid);
 }
-#get-involved p a {
+.section-dark p a {
   color: var(--orange-light);
 }
 
-#get-involved > div {
+.button-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
@@ -677,19 +702,11 @@ nav li:not(:first-child) a:hover {
   border-radius: 4px;
 }
 
-.reticulum-card {
+/* Full-width row of its own. Needs to out-specify `.on-the-air > div`,
+   whose `flex: 1` shorthand sets flex-basis to 0 and would otherwise
+   keep this card sharing the first row with the other two. */
+.on-the-air > .reticulum-card {
   flex-basis: 100%;
-}
-
-.reticulum-card code {
-  font-size: 0.9em;
-  color: var(--cream-dark);
-}
-
-.reticulum-card .frequency {
-  font-size: 1.4rem;
-  margin-top: 0.75rem;
-  white-space: normal;
 }
 
 .reticulum-config {
@@ -698,9 +715,18 @@ nav li:not(:first-child) a:hover {
   margin-top: 1.25rem;
 }
 
+/* Columns already stretch to equal height; making each one a flex column
+   lets its panel grow to fill, so both panels match despite the LoRa
+   block having twice the lines. */
 .reticulum-config > div {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.reticulum-config .config {
+  flex: 1;
 }
 
 .reticulum-config h5 {
@@ -713,15 +739,21 @@ nav li:not(:first-child) a:hover {
   margin-bottom: 0.5rem;
 }
 
-.reticulum-config pre {
+.config {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--cream-dark);
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   padding: 0.85rem 1rem;
   overflow-x: auto;
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--cream-dark);
+}
+
+.config span {
+  display: block;
+  white-space: nowrap;
 }
 
 /* =============================================
@@ -816,73 +848,6 @@ nav li:not(:first-child) a:hover {
 }
 
 /* =============================================
-   FAQ
-============================================= */
-#faq > div {
-  margin-top: 1.75rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-details {
-  border-bottom: 1px solid var(--border);
-  background: var(--white);
-}
-details:last-child {
-  border-bottom: none;
-}
-
-details summary {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 1rem 1.25rem;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  user-select: none;
-  transition: background 0.15s;
-}
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details summary:hover {
-  background: var(--cream);
-}
-
-details[open] summary {
-  color: var(--orange-dark);
-}
-
-details summary::after {
-  content: '+';
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--orange);
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
-details[open] summary::after {
-  transform: rotate(45deg);
-}
-
-details > p {
-  padding: 0.6rem 1.25rem 1.1rem;
-  font-size: 0.95rem;
-  color: var(--ink-muted);
-  line-height: 1.65;
-  margin-bottom: 0;
-}
-details > p a {
-  color: var(--orange-dark);
-}
-
-/* =============================================
    FOOTER
 ============================================= */
 footer {
@@ -925,9 +890,6 @@ footer > p:last-child {
   #topics ul {
     grid-template-columns: repeat(3, 1fr);
   }
-  .meeting-info {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 580px) {
@@ -939,15 +901,32 @@ footer > p:last-child {
     display: none;
   }
 
-  #about {
+  .hero-top {
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
   }
 
-  #about > img {
+  .hero-top > img {
     width: 160px;
     height: 160px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions > a {
+    width: 100%;
+  }
+
+  .meeting-links {
+    flex-direction: column;
+  }
+
+  .meeting-links > a {
+    width: 100%;
   }
 
   #topics ul {
@@ -962,15 +941,15 @@ footer > p:last-child {
     height: 200px;
   }
 
-  .meeting-info {
-    grid-template-columns: 1fr;
-  }
-
-  #get-involved > div {
+  .button-row {
     flex-direction: column;
   }
-  #get-involved > div > a {
+  .button-row > a {
     justify-content: center;
+  }
+
+  .on-the-air {
+    flex-direction: column;
   }
 
   .reticulum-config {
