@@ -1,0 +1,14 @@
+# GitHub Pages builds this repo with Jekyll. The site itself is plain static
+# HTML — Jekyll is only here to decide what gets published. Anything listed
+# below stays in the repo but is left out of the deployed site.
+#
+# Note: setting `exclude` replaces Jekyll's defaults, so node_modules is
+# listed explicitly. Dotfiles (.nvmrc, .prettierrc, .vscode) are already
+# skipped by Jekyll, but are named here to keep the intent obvious.
+exclude:
+  - package.json
+  - package-lock.json
+  - node_modules
+  - .nvmrc
+  - .prettierrc
+  - .vscode

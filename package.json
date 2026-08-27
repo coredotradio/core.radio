@@ -1,0 +1,14 @@
+{
+  "name": "core-radio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for CORE — Central Ohio Radio Enthusiasts",
+  "homepage": "https://core.radio",
+  "license": "Copyright (c) 2025 CORE — Central Ohio Radio Enthusiasts",
+  "scripts": {
+    "dev": "live-server --port=3000"
+  },
+  "devDependencies": {
+    "@compodoc/live-server": "^1.2.3"
+  }
+}
